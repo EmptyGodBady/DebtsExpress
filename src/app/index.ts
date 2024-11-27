@@ -1,17 +1,19 @@
-import express, { Express, Request, Response } from "express";
+import express from "express";
 import dotenv from "dotenv";
 import { errorHandler, notFound } from "../lib/helpers/not-found-errors";
+import Routers from "../rest-api/routers";
 
 dotenv.config();
+const { debtsRouter, messagesRouter, usersRouter } = Routers;
 
-const app: Express = express();
+const app = express();
 const port = process.env.PORT || 8080;
 
 app.use(express.json());
 
-app.use("/api/v1/debts");
-app.use("/api/v1/users");
-app.use("/api/v1/messages");
+app.use("/api/v1/debts", debtsRouter);
+app.use("/api/v1/users", usersRouter);
+app.use("/api/v1/messages", messagesRouter);
 
 app.use(notFound);
 app.use(errorHandler);

@@ -1,5 +1,5 @@
 import { Users } from "@prisma/client";
-import { IUser } from "../../lib/interfaces";
+import { IUser } from "../../lib/interfaces/interfaces";
 import prisma from "../../lib/prisma/prismaClient";
 
 class UsersModel {
@@ -15,7 +15,7 @@ class UsersModel {
     return prisma.users.findMany();
   }
 
-  async deleteUser({ id }: IUser): Promise<Users> {
+  async deleteUser(id: string): Promise<Users> {
     return prisma.users.delete({
       where: { id },
     });

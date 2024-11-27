@@ -1,8 +1,14 @@
-import { Router } from "express";
+import express from "express";
+import controllers from "../controllers";
+import Validator from "../../lib/middlewares/Validator";
 
-const router = Router();
+const router = express.Router();
 
-router.get("/messages");
-router.post("/messages");
+router.get("/get", controllers.messagesController.getAllMessages);
+router.post(
+  "/create",
+  Validator("message"),
+  controllers.messagesController.createMessage
+);
 
 export default router;
