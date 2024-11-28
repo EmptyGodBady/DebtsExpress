@@ -4,13 +4,9 @@ import Validator from "../../lib/middlewares/Validator";
 
 const router = express.Router();
 
-router.get("/get", controllers.usersController.getAllUsers);
+router.get("/user", controllers.usersController.getAllUsers);
 
-router.post(
-  "/create",
-  Validator("user"),
-  controllers.usersController.createUser
-);
-router.delete("/delete", controllers.usersController.deleteUser);
+router.post("/user", Validator("user"), controllers.usersController.createUser);
+router.delete("/user", controllers.usersController.deleteUser);
 
 export default router;
