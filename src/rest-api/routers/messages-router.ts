@@ -4,7 +4,7 @@ import Validator from "../../lib/middlewares/Validator";
 
 const router = express.Router();
 
-router.get("/messages", controllers.messagesController.getAllMessages);
+router.get("/message", controllers.messagesController.getAllMessages);
 router.post(
   "/messages",
   Validator("message"),
