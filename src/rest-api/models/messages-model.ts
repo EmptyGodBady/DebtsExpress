@@ -13,8 +13,12 @@ class MessagesModel {
     });
   }
 
-  async getAllMessages(): Promise<Messages[]> {
-    return prisma.messages.findMany();
+  async getMessages(debt_id: string): Promise<Messages[]> {
+    return prisma.messages.findMany({
+      where: {
+        debt_id,
+      },
+    });
   }
 }
 export default new MessagesModel();

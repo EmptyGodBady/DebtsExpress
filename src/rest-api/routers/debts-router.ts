@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/debt", controllers.debtsController.getAllDebts);
 router.post("/debt", Validator("debt"), controllers.debtsController.createDebt);
-router.put("/debt", controllers.debtsController.updateDebt);
+router.put("/debt/:id", controllers.debtsController.updateDebt);
 router.delete("/debt", controllers.debtsController.deleteDebt);
 
 export default router;

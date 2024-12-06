@@ -6,8 +6,6 @@ class UsersController {
   async getAllUsers(req: Request, res: Response) {
     const users = await UsersModel.getAllUsers();
     res.status(200).json(users);
-    console.log("Returning users:", users);
-    console.log(123);
   }
 
   async createUser(req: Request, res: Response) {
